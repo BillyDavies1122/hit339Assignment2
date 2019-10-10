@@ -17,5 +17,6 @@ namespace assignment2.Data
         public virtual DbSet<Coach> Coach { get; set; }
         public virtual DbSet<Schedule> Schedule { get; set; }
         public virtual DbSet<ScheduleMembers> ScheduleMembers { get; set; }
+        public virtual DbSet<Enrolments> Enrolments { get; set; }
     }
 }

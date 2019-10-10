@@ -13,5 +13,6 @@
     <WebStackScaffolding_DbContextTypeFullName>assignment2.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
     <WebStackScaffolding_LayoutPageFile />
+    <NameOfLastUsedPublishProfile>230525assignment2 - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
