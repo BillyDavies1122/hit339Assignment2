@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using assignment2.Data;
 using assignment2.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 namespace assignment2.Controllers
 {
@@ -14,14 +16,24 @@ namespace assignment2.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        
+
         public SchedulesController(ApplicationDbContext context)
         {
             _context = context;
         }
+        
 
         // GET: Schedules
         public async Task<IActionResult> Index()
         {
+            return View(await _context.Schedule.ToListAsync());
+        }
+
+        // GET: mySchedules
+        public async Task<IActionResult> mySchedules()
+        {
+            ViewBag.userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             return View(await _context.Schedule.ToListAsync());
         }
 
