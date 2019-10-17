@@ -84,3 +84,5 @@ C:\Users\Billy\Documents\GitHub\hit339Assignment2\assignment2\assignment2\obj\De
 C:\Users\Billy\Documents\GitHub\hit339Assignment2\assignment2\assignment2\obj\Debug\netcoreapp2.1\Razor\Views\Schedules\Edit.g.cshtml.cs
 C:\Users\Billy\Documents\GitHub\hit339Assignment2\assignment2\assignment2\obj\Debug\netcoreapp2.1\Razor\Views\Schedules\Index.g.cshtml.cs
 C:\Users\Billy\Documents\GitHub\hit339Assignment2\assignment2\assignment2\obj\Debug\netcoreapp2.1\Razor\Views\Schedules\mySchedules.g.cshtml.cs
+C:\Users\Billy\Documents\GitHub\hit339Assignment2\assignment2\assignment2\obj\Debug\netcoreapp2.1\Razor\Views\Coaches\editMyProfile.g.cshtml.cs
+C:\Users\Billy\Documents\GitHub\hit339Assignment2\assignment2\assignment2\obj\Debug\netcoreapp2.1\Razor\Views\ScheduleMembers\checkEnrolled.g.cshtml.cs

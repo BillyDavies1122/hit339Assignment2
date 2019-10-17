@@ -7,21 +7,31 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using assignment2.Data;
 using assignment2.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace assignment2.Controllers
 {
     public class CoachesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _identity;
 
-        public CoachesController(ApplicationDbContext context)
+        public CoachesController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _identity = userManager;
         }
 
         // GET: Coaches
         public async Task<IActionResult> Index()
         {
+            ViewBag.userEmail = _identity.GetUserName(User);
+            return View(await _context.Coach.ToListAsync());
+        }
+        //GET: editMyProfile
+        public async Task<IActionResult> editMyProfile()
+        {
+            ViewBag.userEmail = _identity.GetUserName(User);
             return View(await _context.Coach.ToListAsync());
         }
 

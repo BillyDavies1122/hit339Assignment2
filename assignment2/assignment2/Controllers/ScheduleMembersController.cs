@@ -145,6 +145,15 @@ namespace assignment2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Get: checkEnrolled/5
+        public  async Task<IActionResult> checkEnrolled(int id)
+        {
+            ViewBag.session = id;
+            return View(await _context.ScheduleMembers.ToListAsync());
+        }
+
+        
+
         private bool ScheduleMembersExists(int id)
         {
             return _context.ScheduleMembers.Any(e => e.Id == id);

@@ -12,7 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Schedules\mySchedules.cshtml">
+    <Content Update="Views\Coaches\editMyProfile.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\ScheduleMembers\checkEnrolled.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

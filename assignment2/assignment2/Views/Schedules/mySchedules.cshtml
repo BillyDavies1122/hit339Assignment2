@@ -6,24 +6,19 @@
 }
 
 <h2>Index</h2>
-
+<p>@ViewBag.userEmail</p>
 <p>
     <a asp-action="Create">Create New Coaching Session</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.When)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CoachEmail)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Location)
@@ -33,10 +28,8 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+    @if (ViewBag.userEmail == item.CoachEmail){
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.When)
             </td>
@@ -44,15 +37,12 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CoachEmail)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Enrol</a>
-            </td>
+            <td><a asp-controller="ScheduleMembers" asp-action="checkEnrolled" asp-route-id="@item.Id">Who is enrolled</a></td>
         </tr>
+    }
+        
 }
     </tbody>
 </table>

@@ -15,12 +15,13 @@ namespace assignment2.Controllers
     public class SchedulesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _identity;
 
-        
 
-        public SchedulesController(ApplicationDbContext context)
+        public SchedulesController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _identity = userManager;
         }
         
 
@@ -33,7 +34,7 @@ namespace assignment2.Controllers
         // GET: mySchedules
         public async Task<IActionResult> mySchedules()
         {
-            ViewBag.userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ViewBag.userEmail =  _identity.GetUserName(User);
             return View(await _context.Schedule.ToListAsync());
         }
 
@@ -56,9 +57,10 @@ namespace assignment2.Controllers
         }
 
         // GET: Schedules/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             return View();
+            
         }
 
         // POST: Schedules/Create
@@ -156,6 +158,38 @@ namespace assignment2.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Enroll(Schedule toEnrollIn)
+        {
+            if (ModelState.IsValid)
+            { 
+                //date today greater than the date of the class
+                if (toEnrollIn.When < DateTime.Now)
+                {
+                //error with dates return to list of schedules
+                return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    var user = _identity.GetUserName(User);
+                    //create new database entry
+                    ScheduleMembers newRecord = new ScheduleMembers
+                    {
+                        ScheduleId = toEnrollIn.Id,
+                        MemberEmail = user
+                    };
+                    //add change to context
+                    _context.Add(newRecord);
+
+                    await _context.SaveChangesAsync();
+                }
+            }
+            //return to list
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
 
         private bool ScheduleExists(int id)
         {
