@@ -82,7 +82,7 @@ Write(ViewBag.userEmail);
             WriteLiteral("</p>\r\n<p>\r\n    ");
             EndContext();
             BeginContext(163, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a0d7da64fea3426e90abd10f9681db95", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "edbfe553893b40e28ef6b7ec51dcbd37", async() => {
                 BeginContext(186, 27, true);
                 WriteLiteral("Create New Coaching Session");
                 EndContext();
@@ -178,7 +178,7 @@ Write(ViewBag.userEmail);
             WriteLiteral("\r\n            </td>\r\n            <td>");
             EndContext();
             BeginContext(1060, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6cfb2dacc78343ab806cb5e8823c3ac9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62f1ef7a13914c5582bd226a3208e527", async() => {
                 BeginContext(1147, 15, true);
                 WriteLiteral("Who is enrolled");
                 EndContext();
