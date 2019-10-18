@@ -64,7 +64,7 @@ using assignment2.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(121, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d7fe841a4a8f43ccb4563e19a7cc9c68", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9989d24a74c94ca381082f012d526092", async() => {
                 BeginContext(144, 27, true);
                 WriteLiteral("Create New Coaching Session");
                 EndContext();
@@ -194,7 +194,7 @@ using assignment2.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                \r\n                ");
             EndContext();
             BeginContext(1381, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f76909e683f248b89152271f10f7e13f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7e5ec572863d418c9f802a4b480e98c1", async() => {
                 BeginContext(1428, 6, true);
                 WriteLiteral("Enroll");
                 EndContext();

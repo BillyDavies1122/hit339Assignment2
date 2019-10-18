@@ -9,9 +9,11 @@ using assignment2.Data;
 using assignment2.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace assignment2.Controllers
 {
+    [Authorize]
     public class SchedulesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -35,8 +37,10 @@ namespace assignment2.Controllers
         public async Task<IActionResult> mySchedules()
         {
             ViewBag.userEmail =  _identity.GetUserName(User);
+
             return View(await _context.Schedule.ToListAsync());
         }
+        
 
         // GET: Schedules/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -55,12 +59,12 @@ namespace assignment2.Controllers
 
             return View(schedule);
         }
-
+        //[Authorize(Roles = "Admin")]
         // GET: Schedules/Create
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return View();
-            
+
         }
 
         // POST: Schedules/Create
@@ -159,12 +163,16 @@ namespace assignment2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Schedules/Enroll/5
         public async Task<IActionResult> Enroll(Schedule toEnrollIn)
         {
+
             if (ModelState.IsValid)
-            { 
+            {
+                //compare the date of enrolment with the date right now
+                int result = DateTime.Compare(toEnrollIn.When, DateTime.Now);
                 //date today greater than the date of the class
-                if (toEnrollIn.When < DateTime.Now)
+                if ( result > 0 )
                 {
                 //error with dates return to list of schedules
                 return RedirectToAction(nameof(Index));

@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using assignment2.Data;
 using assignment2.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace assignment2.Controllers
 {
+    [Authorize]
     public class ScheduleMembersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _identity;
 
-        public ScheduleMembersController(ApplicationDbContext context)
+        public ScheduleMembersController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _identity = userManager;
         }
 
         // GET: ScheduleMembers

@@ -25,7 +25,7 @@ namespace assignment2
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    SeedData.Initialize(services);
+                    //SeedData.Initialize(services);
                 }
                 catch (Exception ex)
                 {
